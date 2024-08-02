@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chanteur index{% endblock %}
+
+{% block body %}
+    <h1>Chanteur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chanteur in chanteurs %}
+            <tr>
+                <td>{{ chanteur.id }}</td>
+                <td>{{ chanteur.nom }}</td>
+                <td>
+                    <a href="{{ path('app_chanteur_show', {'id': chanteur.id}) }}">show</a>
+                    <a href="{{ path('app_chanteur_edit', {'id': chanteur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chanteur_new') }}">Create new</a>
+{% endblock %}

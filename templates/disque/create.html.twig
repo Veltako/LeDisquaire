@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<div class="container">
+		<h1>Créer un disque</h1>
+		{{form_start(form)}}
+		<div
+			class="form-group">
+			{# --label-- #}
+			{{form_label(form.nomDisque)}}
+			{# --input-- #}
+			{{form_widget(form.nomDisque)}}
+			<div class="form-error">
+				{{form_errors(form.nomDisque)}}
+			</div>
+		</div>
+		<div class="form-group">
+            {# --label-- #}
+			{{form_label(form.chanteur)}}
+			{# --input-- #}
+			{{form_widget(form.chanteur)}}
+		</div>
+		{{form_end(form)}}
+	</div>
+
+{% endblock %}

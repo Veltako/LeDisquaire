@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+{% for message in app.flashes('danger') %}
+	<div class="alert alert-danger">
+		{{message}}
+	</div>
+{% endfor %}
+
+{% for message in app.flashes('success') %}
+	<div class="alert alert-success">
+		{{message}}
+	</div>
+{% endfor %}
+
+<h1>les disques</h1>
+
+
+<table>
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">titre</th>
+			<th scope="col">chanteur</th>
+			<th scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for disque in disques %}
+			<tr>
+				<th scope="row">{{disque.id}}</th>
+				<td>{{disque.nomDisque}}</td>
+			</tr>
+		</th>
+		<td>{{disque.chanteur.nom}}</td>
+	</tbody>
+</th>
+<td>
+	<a href="{{path("app_disque_id",{"id": disque.id})}}">Voir</a>
+</td></th><td>
+<a href="{{path("app_disque_edit",{"id": disque.id})}}">Modifier</a></td></th><td><a href="{{path("app_disque_delete",{"id": disque.id})}}">supprimer</a></td></th></tr>{% endfor %}</tbody></table>{% endblock %}
